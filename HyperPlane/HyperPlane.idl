@@ -1,0 +1,29 @@
+// HyperPlane.idl : type library source for HyperPlane.exe
+
+// This file will be processed by the MIDL compiler to produce the
+// type library (HyperPlane.tlb).
+
+[ uuid(7BE0BBC0-2939-4461-AD0C-BA586E9FC3A7), version(1.0) ]
+library HyperPlane
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	//  Primary dispatch interface for CHyperPlaneDoc
+	
+	[ uuid(57AC423D-3BFB-4FBE-9DFD-6268C09C0159) ]
+	dispinterface IHyperPlane
+	{
+		properties:
+			
+		methods:
+	};
+
+	//  Class information for CHyperPlaneDoc
+	
+	[ uuid(74059D69-9F0D-426B-AB40-444845B0104A) ]
+	coclass CHyperPlaneDoc
+	{
+		[default] dispinterface IHyperPlane;
+	};
+};
