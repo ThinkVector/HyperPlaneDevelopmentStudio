@@ -3,6 +3,9 @@ Hyper Plane Development Studio
 
 
 
+
+
+
 Grand Abstract: Hyper Plane Development Studio for hyper operating system, hyper personal (or personal devices) systems, operating systems, and personal (or personal devices) systems.
 
 	HyperOS : Hyper Operating System
