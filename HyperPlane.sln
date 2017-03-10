@@ -13,8 +13,8 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{60B5C299-5E55-4F96-87B1-27D1649BA4F2}.Debug|x64.ActiveCfg = Debug|x64
-		{60B5C299-5E55-4F96-87B1-27D1649BA4F2}.Debug|x64.Build.0 = Debug|x64
+		{60B5C299-5E55-4F96-87B1-27D1649BA4F2}.Debug|x64.ActiveCfg = Debug|Win32
+		{60B5C299-5E55-4F96-87B1-27D1649BA4F2}.Debug|x64.Build.0 = Debug|Win32
 		{60B5C299-5E55-4F96-87B1-27D1649BA4F2}.Debug|x86.ActiveCfg = Debug|Win32
 		{60B5C299-5E55-4F96-87B1-27D1649BA4F2}.Debug|x86.Build.0 = Debug|Win32
 		{60B5C299-5E55-4F96-87B1-27D1649BA4F2}.Release|x64.ActiveCfg = Release|x64
@@ -24,14 +24,5 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 2
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = https://ferditekin.visualstudio.com/
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = HyperPlane\\HyperPlane.vcxproj
-		SccProjectName1 = HyperPlane
-		SccLocalPath1 = HyperPlane
 	EndGlobalSection
 EndGlobal

@@ -1,0 +1,35 @@
+﻿  64 bit Processing .\HyperPlane.idl
+  HyperPlane.idl
+  64 bit Processing C:\Program Files\Windows Kits\8.1\Include\um\oaidl.idl
+  oaidl.idl
+  64 bit Processing C:\Program Files\Windows Kits\8.1\Include\um\objidl.idl
+  objidl.idl
+  64 bit Processing C:\Program Files\Windows Kits\8.1\Include\um\unknwn.idl
+  unknwn.idl
+  64 bit Processing C:\Program Files\Windows Kits\8.1\Include\shared\wtypes.idl
+  wtypes.idl
+  64 bit Processing C:\Program Files\Windows Kits\8.1\Include\shared\wtypesbase.idl
+  wtypesbase.idl
+  64 bit Processing C:\Program Files\Windows Kits\8.1\Include\shared\basetsd.h
+  basetsd.h
+  64 bit Processing C:\Program Files\Windows Kits\8.1\Include\shared\guiddef.h
+  guiddef.h
+  64 bit Processing C:\Program Files\Windows Kits\8.1\Include\um\oaidl.acf
+  oaidl.acf
+  stdafx.cpp
+  ViewTree.cpp
+  SrvrItem.cpp
+  PropertiesWnd.cpp
+  OutputWnd.cpp
+  MainFrm.cpp
+  IpFrame.cpp
+  HyperPlaneViewPort.cpp
+  HyperPlaneView.cpp
+  HyperPlaneDoc.cpp
+  HyperPlane.cpp
+  FileView.cpp
+  CntrItem.cpp
+  ClassView.cpp
+  Generating Code...
+  HyperPlane.vcxproj -> C:\Users\ferdi\Documents\GitHub\HyperPlane\x64\Debug\HyperPlane.exe
+  HyperPlane.vcxproj -> C:\Users\ferdi\Documents\GitHub\HyperPlane\x64\Debug\HyperPlane.pdb (Partial PDB)

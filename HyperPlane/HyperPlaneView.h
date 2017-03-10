@@ -5,6 +5,7 @@
 #pragma once
 
 #include "HyperPlaneViewPort.h"
+#include "HyperPlaneViewAngle.h"
 
 class CHyperPlaneCntrItem;
 
@@ -29,12 +30,16 @@ public:
 // Operations
 public:
 	HyperPlaneViewPort firstdraw;
+	HyperPlaneViewAngle firstangle;
 	CRect devicerect;
+	int clickCount;
 
 // Overrides
 public:
 	virtual void OnDraw(CDC* pDC);  // overridden to draw this view
 	virtual BOOL PreCreateWindow(CREATESTRUCT& cs);
+	virtual void HPTypeLoopDrawer_Test(CDC* pDC);
+	virtual void HPAngle_Test(CDC* pDC);
 protected:
 	virtual void OnInitialUpdate(); // called first time after construct
 	virtual BOOL OnPreparePrinting(CPrintInfo* pInfo);

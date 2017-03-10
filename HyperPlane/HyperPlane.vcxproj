@@ -207,6 +207,7 @@
     <ClInclude Include="HyperPlane.h" />
     <ClInclude Include="HyperPlaneDoc.h" />
     <ClInclude Include="HyperPlaneView.h" />
+    <ClInclude Include="HyperPlaneViewAngle.h" />
     <ClInclude Include="HyperPlaneViewPort.h" />
     <ClInclude Include="IpFrame.h" />
     <ClInclude Include="MainFrm.h" />
@@ -225,6 +226,7 @@
     <ClCompile Include="HyperPlane.cpp" />
     <ClCompile Include="HyperPlaneDoc.cpp" />
     <ClCompile Include="HyperPlaneView.cpp" />
+    <ClCompile Include="HyperPlaneViewAngle.cpp" />
     <ClCompile Include="HyperPlaneViewPort.cpp" />
     <ClCompile Include="IpFrame.cpp" />
     <ClCompile Include="MainFrm.cpp" />

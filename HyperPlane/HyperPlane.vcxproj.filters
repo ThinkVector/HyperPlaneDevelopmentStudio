@@ -66,6 +66,9 @@
     <ClInclude Include="HyperPlaneViewPort.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="HyperPlaneViewAngle.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="HyperPlane.cpp">
@@ -108,6 +111,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="HyperPlaneViewPort.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="HyperPlaneViewAngle.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
