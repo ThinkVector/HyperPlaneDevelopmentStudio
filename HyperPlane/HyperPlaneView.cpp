@@ -50,7 +50,36 @@ CHyperPlaneView::CHyperPlaneView()
 	firstdraw.PortInitialize(devicerect);
 	firstdraw.PortOn(true);
 	clickCount = 1;
-	//firstangle = new HyperPlaneViewAngle;
+
+	//initilize angular triple object
+	tmp_r0_00	= CPoint(0, 0); tmp_r1_00	= CPoint(40, 0); tmp_r2_00		= CPoint(90, 0); tmp_r3_00		= CPoint(120, 0);
+	tmp_ar0_00	= CPoint(0, 0); tmp_ar1_00	= CPoint(34, 10); tmp_ar2_00	= CPoint(70, 40); tmp_ar3_00	= CPoint(110, 15);
+	firstangle_1.SetHyperPlaneViewLinear(tmp_r0_00, tmp_r1_00, tmp_r2_00, tmp_r3_00, tmp_ar0_00, tmp_ar1_00, tmp_ar2_00, tmp_ar3_00);
+	
+	tmp_r0_00	= CPoint(0, 0); tmp_r1_00	= CPoint(-60, 0); tmp_r2_00		= CPoint(-90, 0); tmp_r3_00		= CPoint(-120, 0);
+	tmp_ar0_00	= CPoint(0, 0); tmp_ar1_00	= CPoint(-34, 60); tmp_ar2_00	= CPoint(-70, 40); tmp_ar3_00	= CPoint(-110, 75);
+	firstangle_2.SetHyperPlaneViewLinear(tmp_r0_00, tmp_r1_00, tmp_r2_00, tmp_r3_00, tmp_ar0_00, tmp_ar1_00, tmp_ar2_00, tmp_ar3_00);
+
+	tmp_r0_00	= CPoint(0, 0); tmp_r1_00	= CPoint(-70, 0); tmp_r2_00		= CPoint(-200, 0); tmp_r3_00	= CPoint(-220, 0);
+	tmp_ar0_00	= CPoint(0, 0); tmp_ar1_00	= CPoint(-30, 80); tmp_ar2_00	= CPoint(-170, 80); tmp_ar3_00	= CPoint(-190, 120);
+	firstangle_3.SetHyperPlaneViewLinear(tmp_r0_00, tmp_r1_00, tmp_r2_00, tmp_r3_00, tmp_ar0_00, tmp_ar1_00, tmp_ar2_00, tmp_ar3_00);
+	
+	tmp_r0_00 = tmp_r1_00 = tmp_r2_00 = tmp_r3_00 = tmp_ar0_00 = tmp_ar1_00 = tmp_ar2_00 = tmp_ar3_00 = CPoint(0,0);
+
+	//create workable object a,b,c,d set
+	object1a = firstangle_1;
+	object1b = firstangle_1;
+	object1c = firstangle_1;
+	object1d = firstangle_1;
+	object2a = firstangle_2;
+	object2b = firstangle_2;
+	object2c = firstangle_2;
+	object2d = firstangle_2;
+	object3a = firstangle_3;
+	object3b = firstangle_3;
+	object3c = firstangle_3;
+	object3d = firstangle_3;
+
 }
 
 CHyperPlaneView::~CHyperPlaneView()
@@ -107,85 +136,51 @@ void CHyperPlaneView::OnDraw(CDC* pDC)
 
 	if(clickCount % 2 == 0)
 	{
-		//holder
-		firstangle.SetHyperPlaneViewLinear(
-			CPoint(devicerect.Width() / 2 + 100, devicerect.Height() / 2 - 200),
-			CPoint(40, 0), CPoint(90, 0), CPoint(120, 0),
-			CPoint(devicerect.Width() / 2 + 100, devicerect.Height() / 2 - 200),
-			CPoint(34, 10), CPoint(70, 40), CPoint(110, 15));
-		firstangle.HyperPlaneViewLinear(pDC);
-		firstangle.SetHyperPlaneViewLinear(
-			CPoint(devicerect.Width() / 2 - 500, devicerect.Height() / 2 - 200),
-			CPoint(40, 0), CPoint(90, 0), CPoint(120, 0),
-			CPoint(devicerect.Width() / 2 - 500, devicerect.Height() / 2 - 200),
-			CPoint(34, 10), CPoint(70, 40), CPoint(110, 15));
-		firstangle.HyperPlaneViewLinear2(pDC, 1);
-		//shank
-		firstangle.SetHyperPlaneViewLinear(
-			CPoint(devicerect.Width() / 2 + 100 + 240, devicerect.Height() / 2 - 200),
-			CPoint(-60, 0), CPoint(-90, 0), CPoint(-120, 0),
-			CPoint(devicerect.Width() / 2 + 100 + 240, devicerect.Height() / 2 - 200),
-			CPoint(-34, 60), CPoint(-70, 40), CPoint(-110, 75));
-		firstangle.HyperPlaneViewLinear(pDC);
-		firstangle.SetHyperPlaneViewLinear(
-			CPoint(devicerect.Width() / 2 - 500 + 240, devicerect.Height() / 2 - 200),
-			CPoint(-60, 0), CPoint(-90, 0), CPoint(-120, 0),
-			CPoint(devicerect.Width() / 2 - 500 + 240, devicerect.Height() / 2 - 200),
-			CPoint(-34, 60), CPoint(-70, 40), CPoint(-110, 75));
-		firstangle.HyperPlaneViewLinear2(pDC, 1);
-		//knees
-		firstangle.SetHyperPlaneViewLinear(
-			CPoint(devicerect.Width() / 2 + 100 + 460, devicerect.Height() / 2 - 200),
-			CPoint(-70, 0), CPoint(-200, 0), CPoint(-220, 0),
-			CPoint(devicerect.Width() / 2 + 100 + 460, devicerect.Height() / 2 - 200),
-			CPoint(-30, 80), CPoint(-170, 80), CPoint(-190, 120));
-		firstangle.HyperPlaneViewLinear(pDC);
-		firstangle.SetHyperPlaneViewLinear(
-			CPoint(devicerect.Width() / 2 - 500 + 460, devicerect.Height() / 2 - 200),
-			CPoint(-70, 0), CPoint(-200, 0), CPoint(-220, 0),
-			CPoint(devicerect.Width() / 2 - 500 + 460, devicerect.Height() / 2 - 200),
-			CPoint(-30, 80), CPoint(-170, 80), CPoint(-190, 120));
-		firstangle.HyperPlaneViewLinear2(pDC, 1);
+		//angular lined pen 
+		object1a.ChangeCenter(CPoint (100, 150));
+		object1a.HyperPlaneViewAngular2(pDC, 1);
+		object2a.ChangeCenter(CPoint(100 + 240, 150));
+		object2a.HyperPlaneViewAngular2(pDC, 1);
+		object3a.ChangeCenter(CPoint(100 + 460, 150));
+		object3a.HyperPlaneViewAngular2(pDC, 1);
 
-		//angular holder
-		firstangle.SetHyperPlaneViewLinear(
-			CPoint(devicerect.Width() / 2 + 100, devicerect.Height() / 2 + 200),
-			CPoint(40, 0), CPoint(90, 0), CPoint(120, 0),
-			CPoint(devicerect.Width() / 2 + 100, devicerect.Height() / 2 + 200),
-			CPoint(34, 10), CPoint(70, 40), CPoint(110, 15));
-		firstangle.HyperPlaneViewAngular(pDC, 1);
-		firstangle.SetHyperPlaneViewLinear(
-			CPoint(devicerect.Width() / 2 - 500, devicerect.Height() / 2 + 200),
-			CPoint(40, 0), CPoint(90, 0), CPoint(120, 0),
-			CPoint(devicerect.Width() / 2 - 500, devicerect.Height() / 2 + 200),
-			CPoint(34, 10), CPoint(70, 40), CPoint(110, 15));
-		firstangle.HyperPlaneViewAngular2(pDC, 1);
-		//angular shank
-		firstangle.SetHyperPlaneViewLinear(
-			CPoint(devicerect.Width() / 2 + 100 + 240, devicerect.Height() / 2 + 200),
-			CPoint(-60, 0), CPoint(-90, 0), CPoint(-120, 0),
-			CPoint(devicerect.Width() / 2 + 100 + 240, devicerect.Height() / 2 + 200),
-			CPoint(-34, 60), CPoint(-70, 40), CPoint(-110, 75));
-		firstangle.HyperPlaneViewAngular(pDC, 1);
-		firstangle.SetHyperPlaneViewLinear(
-			CPoint(devicerect.Width() / 2 - 500 + 240, devicerect.Height() / 2 + 200),
-			CPoint(-60, 0), CPoint(-90, 0), CPoint(-120, 0),
-			CPoint(devicerect.Width() / 2 - 500 + 240, devicerect.Height() / 2 + 200),
-			CPoint(-34, 60), CPoint(-70, 40), CPoint(-110, 75));
-		firstangle.HyperPlaneViewAngular2(pDC, 1);
-		//angular knees
-		firstangle.SetHyperPlaneViewLinear(
-			CPoint(devicerect.Width() / 2 + 100 + 460, devicerect.Height() / 2 + 200),
-			CPoint(-70, 0), CPoint(-200, 0), CPoint(-220, 0),
-			CPoint(devicerect.Width() / 2 + 100 + 460, devicerect.Height() / 2 + 200),
-			CPoint(-30, 80), CPoint(-170, 80), CPoint(-190, 120));
-		firstangle.HyperPlaneViewAngular(pDC, 1);
-		firstangle.SetHyperPlaneViewLinear(
-			CPoint(devicerect.Width() / 2 - 500 + 460, devicerect.Height() / 2 + 200),
-			CPoint(-70, 0), CPoint(-200, 0), CPoint(-220, 0),
-			CPoint(devicerect.Width() / 2 - 500 + 460, devicerect.Height() / 2 + 200),
-			CPoint(-30, 80), CPoint(-170, 80), CPoint(-190, 120));
-		firstangle.HyperPlaneViewAngular2(pDC, 1);
+		//angular areaded pen 
+		object1b.ChangeCenter(CPoint(100, 400));
+		object1b.HyperPlaneViewAngular(pDC, 1);
+		object2b.ChangeCenter(CPoint(100 + 240, 400));
+		object2b.HyperPlaneViewAngular(pDC, 1);
+		object3b.ChangeCenter(CPoint(100 + 460, 400));
+		object3b.HyperPlaneViewAngular(pDC, 1);
+
+		//linear lined pen 
+		object1c.ChangeCenter(CPoint(100 + 600, 150));
+		object1c.HyperPlaneViewLinear2(pDC, 1);
+		object2c.ChangeCenter(CPoint(100 + 240 + 600, 150));
+		object2c.HyperPlaneViewLinear2(pDC, 1);
+		object3c.ChangeCenter(CPoint(100 + 460 + 600, 150));
+		object3c.HyperPlaneViewLinear2(pDC, 1);
+
+		//linear areaded pen 
+		object1d.ChangeCenter(CPoint(100 + 600, 400));
+		object1d.HyperPlaneViewLinear(pDC);
+		object2d.ChangeCenter(CPoint(100 + 240 + 600, 400));
+		object2d.HyperPlaneViewLinear(pDC);
+		object3d.ChangeCenter(CPoint(100 + 460 + 600, 400));
+		object3d.HyperPlaneViewLinear(pDC);
+
+		//angular linear mix pen
+		object1a.ChangeCenter(CPoint(100, 700));
+		object1a.HyperPlaneViewAngular2(pDC, 1);
+		object2a.ChangeCenter(CPoint(100 + 240, 700));
+		object2a.HyperPlaneViewAngular2(pDC, 1);
+		object3a.ChangeCenter(CPoint(100 + 460, 700));
+		object3a.HyperPlaneViewAngular2(pDC, 1);
+		object1c.ChangeCenter(CPoint(100, 700));
+		object1c.HyperPlaneViewLinear2(pDC, 1);
+		object2c.ChangeCenter(CPoint(100 + 240, 700));
+		object2c.HyperPlaneViewLinear2(pDC, 1);
+		object3c.ChangeCenter(CPoint(100 + 460, 700));
+		object3c.HyperPlaneViewLinear2(pDC, 1);
 	}
 }
 
@@ -612,8 +607,10 @@ CHyperPlaneDoc* CHyperPlaneView::GetDocument() const // non-debug version is inl
 void CHyperPlaneView::OnLButtonUp(UINT nFlags, CPoint point)
 {
 	// TODO: Add your message handler code here and/or call default   
-	Invalidate();
+	if(clickCount %2 == 0)Invalidate();
+	else OnInitialUpdate();
 	clickCount++;
+
 	CView::OnLButtonUp(nFlags, point);
 }
 //*************************

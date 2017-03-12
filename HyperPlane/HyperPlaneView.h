@@ -7,6 +7,7 @@
 #include "HyperPlaneViewPort.h"
 #include "HyperPlaneViewAngle.h"
 
+
 class CHyperPlaneCntrItem;
 
 class CHyperPlaneView : public CView
@@ -30,9 +31,18 @@ public:
 // Operations
 public:
 	HyperPlaneViewPort firstdraw;
-	HyperPlaneViewAngle firstangle;
+	HyperPlaneViewAngle firstangle, firstangle_1, firstangle_2, firstangle_3;
+
+	HyperPlaneViewAngle object1a, object2a, object3a;
+	HyperPlaneViewAngle object1b, object2b, object3b;
+	HyperPlaneViewAngle object1c, object2c, object3c;
+	HyperPlaneViewAngle object1d, object2d, object3d;
+	
 	CRect devicerect;
 	int clickCount;
+
+public:
+	CPoint tmp_r0_00, tmp_r1_00, tmp_r2_00, tmp_r3_00, tmp_ar0_00, tmp_ar1_00, tmp_ar2_00, tmp_ar3_00;
 
 // Overrides
 public:
