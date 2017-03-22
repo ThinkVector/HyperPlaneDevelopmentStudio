@@ -802,8 +802,7 @@ END
 //
 
 IDB_BITMAP1             BITMAP                  "res\\main.bmp"
-
-IDB_BITMAP2             BITMAP                  "res\\bitmap2.bmp"
+IDB_BITMAP2             BITMAP                  "res\\HyperPlane.bmp"
 
 #endif    // Turkish (Turkey) resources
 /////////////////////////////////////////////////////////////////////////////

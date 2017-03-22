@@ -12,6 +12,12 @@
 #include "HyperPlaneDoc.h"
 #include "HyperPlaneView.h"
 
+//new added
+#include "HyperPlaneViewAngle.h"
+#include "HyperPlaneViewPort.h"
+#include "HyperPlanePolygon.h"
+//new added
+
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #endif

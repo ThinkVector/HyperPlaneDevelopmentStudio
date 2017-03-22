@@ -69,6 +69,12 @@
     <ClInclude Include="HyperPlaneViewAngle.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="HyperPlanePolygon.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="HyperPlaneTypes.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="HyperPlane.cpp">
@@ -114,6 +120,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="HyperPlaneViewAngle.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="HyperPlanePolygon.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="HyperPlaneTypes.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -218,7 +230,13 @@
     <Image Include="res\main.bmp">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="res\bitmap2.bmp">
+    <Image Include="res\HyperPlaneMainMenu.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\HyperPlaneCoordinateShort1E0.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\HyperPlane.bmp">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

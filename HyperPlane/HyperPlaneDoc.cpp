@@ -67,6 +67,18 @@ CHyperPlaneDoc::CHyperPlaneDoc()
 	AfxOleLockApp();
 }
 
+void CHyperPlaneDoc::AddPolygonObject(std::shared_ptr<HyperPlanePolygon>& _pPolygonObject)
+{
+	m_PolygonObjectList.push_back(_pPolygonObject);
+	UpdateAllViews(nullptr, 0, _pPolygonObject.get()); // Tell all the views
+}
+
+void CHyperPlaneDoc::DeletePolygonObject(std::shared_ptr<HyperPlanePolygon>& _pPolygonObject)
+{
+	m_PolygonObjectList.remove(_pPolygonObject);
+	UpdateAllViews(nullptr, 0, _pPolygonObject.get()); // Tell all the views
+}
+
 CHyperPlaneDoc::~CHyperPlaneDoc()
 {
 	AfxOleUnlockApp();

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
@@ -32,14 +32,14 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
     <UseOfMfc>Dynamic</UseOfMfc>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
     <UseOfMfc>Dynamic</UseOfMfc>
@@ -47,14 +47,14 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
     <UseOfMfc>Dynamic</UseOfMfc>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
     <UseOfMfc>Dynamic</UseOfMfc>
@@ -206,6 +206,8 @@
     <ClInclude Include="FileView.h" />
     <ClInclude Include="HyperPlane.h" />
     <ClInclude Include="HyperPlaneDoc.h" />
+    <ClInclude Include="HyperPlanePolygon.h" />
+    <ClInclude Include="HyperPlaneTypes.h" />
     <ClInclude Include="HyperPlaneView.h" />
     <ClInclude Include="HyperPlaneViewAngle.h" />
     <ClInclude Include="HyperPlaneViewPort.h" />
@@ -225,6 +227,8 @@
     <ClCompile Include="FileView.cpp" />
     <ClCompile Include="HyperPlane.cpp" />
     <ClCompile Include="HyperPlaneDoc.cpp" />
+    <ClCompile Include="HyperPlanePolygon.cpp" />
+    <ClCompile Include="HyperPlaneTypes.cpp" />
     <ClCompile Include="HyperPlaneView.cpp" />
     <ClCompile Include="HyperPlaneViewAngle.cpp" />
     <ClCompile Include="HyperPlaneViewPort.cpp" />
@@ -252,11 +256,12 @@
     <ResourceCompile Include="HyperPlane.rc" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="res\bitmap2.bmp" />
+    <Image Include="res\HyperPlane.bmp" />
     <Image Include="res\classview.bmp" />
     <Image Include="res\classview_hc.bmp" />
     <Image Include="res\class_view.ico" />
     <Image Include="res\class_view_hc.ico" />
+    <Image Include="res\HyperPlaneCoordinateShort1E0.bmp" />
     <Image Include="res\explorer.bmp" />
     <Image Include="res\explorer_hc.bmp" />
     <Image Include="res\fileview.bmp" />
@@ -265,6 +270,7 @@
     <Image Include="res\file_view_hc.ico" />
     <Image Include="res\HyperPlane.ico" />
     <Image Include="res\HyperPlaneDoc.ico" />
+    <Image Include="res\HyperPlaneMainMenu.bmp" />
     <Image Include="res\IToolbar.bmp" />
     <Image Include="res\IToolbar256.bmp" />
     <Image Include="res\main.bmp" />

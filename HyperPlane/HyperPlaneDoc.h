@@ -5,6 +5,16 @@
 
 #pragma once
 
+//new added
+#include "HyperPlaneViewAngle.h"
+#include "HyperPlaneViewPort.h"
+#include "HyperPlanePolygon.h"
+#include "HyperPlaneTypes.h"
+//new added
+
+//new iterator for hyperplane polygon object
+using PolygonObjectIterator = std::list<std::shared_ptr<HyperPlanePolygon>>::const_iterator;
+//new iterator for hyperplane polygon object
 
 class CHyperPlaneSrvrItem;
 
@@ -17,10 +27,57 @@ protected: // create from serialization only
 // Attributes
 public:
 	CHyperPlaneSrvrItem* GetEmbeddedItem()
-		{ return reinterpret_cast<CHyperPlaneSrvrItem*>(COleServerDocEx::GetEmbeddedItem()); }
+	{
+		return reinterpret_cast<CHyperPlaneSrvrItem*>(COleServerDocEx::GetEmbeddedItem());
+	}
 
 // Operations
 public:
+	//adding objects list to new object
+	void AddPolygonObject(std::shared_ptr<HyperPlanePolygon>& _pPolygonObject);
+	void DeletePolygonObject(std::shared_ptr<HyperPlanePolygon>& _pPolygonObject);
+
+	//types constructors
+	HyperPlaneObjectType GetObjectType()const 
+	{ 
+		return m_t_objecttype; 
+	}
+	HyperPlaneObjectColorType GetObjectColorType()const 
+	{ 
+		return m_t_objectcolortype; 
+	}
+
+	// Finds the element under the point
+	std::shared_ptr<HyperPlanePolygon> FindElement(const CPoint& point)const
+	{
+		for (const auto& posObjx : m_PolygonObjectList)
+		{
+			if (posObjx->GetEnclosingRect().PtInRect(point))
+				return posObjx;
+		}
+		return nullptr;
+	}
+
+	//iterator type
+	// Provide a begin iterator for the HyperPlanePolygonObject
+	PolygonObjectIterator begin() const
+	{
+		return std::begin(m_PolygonObjectList); 
+	}
+	// Provide an end iterator for the HyperPlanePolygonObject
+	PolygonObjectIterator end() const
+	{
+		return std::end(m_PolygonObjectList);
+	}
+
+//Operations
+protected:
+	//types operation
+	HyperPlaneObjectType m_t_objecttype{ HyperPlaneObjectType::LINEAR_CURVE };	//current object type
+	HyperPlaneObjectColorType m_t_objectcolortype{ HyperPlaneObjectColorType::BLUE_SINGLE };	//current object color type
+
+	//create shared object list address operation
+	std::list<std::shared_ptr<HyperPlanePolygon>> m_PolygonObjectList;
 
 // Overrides
 protected:
@@ -57,3 +114,4 @@ protected:
 	void SetSearchContent(const CString& value);
 #endif // SHARED_HANDLERS
 };
+

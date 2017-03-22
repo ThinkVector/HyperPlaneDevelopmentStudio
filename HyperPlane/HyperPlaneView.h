@@ -6,6 +6,8 @@
 
 #include "HyperPlaneViewPort.h"
 #include "HyperPlaneViewAngle.h"
+#include "HyperPlanePolygon.h"
+#include "HyperPlaneTypes.h"
 
 
 class CHyperPlaneCntrItem;
@@ -38,6 +40,8 @@ public:
 	HyperPlaneViewAngle object1c, object2c, object3c;
 	HyperPlaneViewAngle object1d, object2d, object3d;
 	
+	//HyperPlanePolygon polygon1;
+
 	CRect devicerect;
 	int clickCount;
 
@@ -50,6 +54,8 @@ public:
 	virtual BOOL PreCreateWindow(CREATESTRUCT& cs);
 	virtual void HPTypeLoopDrawer_Test(CDC* pDC);
 	virtual void HPAngle_Test(CDC* pDC);
+	virtual void OnUpdate(CView* /*pSender*/, LPARAM /*lHint*/, CObject* /*pHint*/);
+
 protected:
 	virtual void OnInitialUpdate(); // called first time after construct
 	virtual BOOL OnPreparePrinting(CPrintInfo* pInfo);
@@ -66,6 +72,21 @@ public:
 #endif
 
 protected:
+	bool m_b_mouseclick;
+	bool m_b_mousemove;
+	bool m_b_mouserelease;
+	CPoint m_mouseclick;
+	CPoint m_mousemove;
+	CPoint m_mouserelease;
+	int m_c_rgba_red, m_c_rgba_green, m_c_rgba_blue, m_c_rgba_alpha;
+
+	std::shared_ptr<HyperPlanePolygon> CreateHyperPlanePolygon() const; // Create a new HyperPlanePolygon on the heap
+
+	CPoint m_CursorPos; // Cursor position
+	CPoint m_FirstPos; // Original position in a move
+	std::shared_ptr<HyperPlanePolygon> m_pTempElement;
+	std::shared_ptr<HyperPlanePolygon> m_pSelected; // Records element under the cursor
+	bool m_MoveMode{ false }; // Move element flag
 
 // Generated message map functions
 protected:
@@ -79,7 +100,11 @@ protected:
 	afx_msg void OnFilePrintPreview();
 	afx_msg void OnRButtonUp(UINT nFlags, CPoint point);
 	afx_msg void OnContextMenu(CWnd* pWnd, CPoint point);
+	afx_msg void OnLButtonDown(UINT nFlags, CPoint point);
+	afx_msg void OnMouseMove(UINT nFlags, CPoint point);
 	afx_msg void OnLButtonUp(UINT nFlags, CPoint point);
+	
+	
 	DECLARE_MESSAGE_MAP()
 };
 

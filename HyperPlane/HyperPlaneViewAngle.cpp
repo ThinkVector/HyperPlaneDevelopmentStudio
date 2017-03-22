@@ -71,7 +71,16 @@
 
 HyperPlaneViewAngle::HyperPlaneViewAngle()
 {
-	//r0 = r1 = r2 = r3 = ar0 = ar1 = ar2 = ar3 = br0 = br1 = br2 = br3 = CPoint(0, 0);
+	//Special Series
+	//**************
+	Series_OddPrime		= 1.35711;		// continue...
+	Series_NotNumber	= 2;			// continue...
+	Series_OddNotPrime	= 9.15212527;	// continue...
+	Series_EvenNumber	= 4.681012;		// continue...
+	Series_OddNotNumber = 1.4737184;	// continue...
+	// Series_NotNumber / Series_OddNotNumber = Series_OddPrime
+	//**************
+	//Special Series
 }
 
 HyperPlaneViewAngle::HyperPlaneViewAngle(CPoint _r0, CPoint _r1, CPoint _r2, CPoint _r3, CPoint _ar0, CPoint _ar1, CPoint _ar2, CPoint _ar3, CPoint _br0, CPoint _br1, CPoint _br2, CPoint _br3)
@@ -97,8 +106,7 @@ HyperPlaneViewAngle::~HyperPlaneViewAngle()
 HyperPlaneViewAngle & HyperPlaneViewAngle::operator=(const HyperPlaneViewAngle & _other)
 {
 	// TODO: insert return statement here
-	//return &HyperPlaneViewAngle();
-	//SetHyperPlaneViewLinear(_other.r0, _other.r1, _other.r2, _other.r3, _other.ar0, _other.ar1, _other.ar2, _other.ar3);
+
 	r0 = _other.r0;
 	r1 = _other.r1;
 	r2 = _other.r2;
@@ -111,7 +119,10 @@ HyperPlaneViewAngle & HyperPlaneViewAngle::operator=(const HyperPlaneViewAngle &
 	br1 = _other.br1;
 	br2 = _other.br2;
 	br3 = _other.br3;
-	return HyperPlaneViewAngle(_other.r0, _other.r1, _other.r2, _other.r3, _other.ar0, _other.ar1, _other.ar2, _other.ar3, _other.br0, _other.br1, _other.br2, _other.br3);
+	
+	HyperPlaneViewAngle(_other.r0, _other.r1, _other.r2, _other.r3, _other.ar0, _other.ar1, _other.ar2, _other.ar3, _other.br0, _other.br1, _other.br2, _other.br3);
+
+	return *this;
 }
 
 void HyperPlaneViewAngle::ChangeCenter(CPoint _r)
@@ -132,26 +143,26 @@ void HyperPlaneViewAngle::ChangeCenter(CPoint _r)
 	br3 += _centeralchange;
 }
 
-//HyperPlaneViewAngle::HyperPlaneViewAngle(const HyperPlaneViewAngle&) ;
-//HyperPlaneViewAngle::HyperPlaneViewAngle(const HyperPlaneViewAngle& other) = default;
-//HyperPlaneViewAngle::HyperPlaneViewAngle(HyperPlaneViewAngle&&) {};             // move-constructor
-//HyperPlaneViewAngle::HyperPlaneViewAngle(const HyperPlaneViewAngle& x) : a(x.a), b(x.b), c(x.c) {}
-
 void HyperPlaneViewAngle::HyperPlaneViewAngular2(CDC* pDC, int line = 1)
 {
+	double singular = 6.0; // -Series_OddPrime - Series_EvenNumber; // -6.01; //-4.68101214161820;
+	double doubler = -6.0; // -Series_OddPrime - Series_EvenNumber; // -6.01; // -4.68101214161820;
+	double singularmultiplier = 1;
+	double doublemultiplier = 2;
+
 	if (r0.x < r1.x)
 	{
 		if (ar2.y > ar1.y)
 		{
 			pDC->MoveTo(r0);
-			pDC->ArcTo(r0.x - (r1.x - r0.x), r0.y - 2 * (r1.y - ar1.y - 6), r1.x, r1.y + 2 * (r1.y - ar1.y - 6), ar1.x, ar1.y, r1.x, r1.y);
+			pDC->ArcTo(r0.x - (r1.x - r0.x), r0.y - int ( doublemultiplier * (r1.y - ar1.y - doubler)), r1.x, r1.y + int ( doublemultiplier * (r1.y - ar1.y - doubler)), ar1.x, ar1.y, r1.x, r1.y);
 			pDC->MoveTo(r1);
 			pDC->LineTo(r0);
 		}
 		else
 		{
 			pDC->MoveTo(r0);
-			pDC->ArcTo(r0.x, r0.y - 1 * (r1.y - ar1.y - 6), r1.x, r1.y + 1 * (r1.y - ar1.y - 6), r0.x, r0.y, r1.x, r1.y);
+			pDC->ArcTo(r0.x, r0.y - int(1 * (r1.y - ar1.y - singular)), r1.x, r1.y + int(1 * (r1.y - ar1.y - singular)), r0.x, r0.y, r1.x, r1.y);
 			pDC->LineTo(r1);
 			pDC->LineTo(r0);
 		}
@@ -159,13 +170,13 @@ void HyperPlaneViewAngle::HyperPlaneViewAngular2(CDC* pDC, int line = 1)
 		if (ar2.y > ar1.y)
 		{
 			pDC->MoveTo(r0);
-			pDC->ArcTo(r0.x - (r1.x - r0.x), r0.y + 2 * (br1.y - r1.y - 6), r1.x, r1.y - 2 * (br1.y - r1.y - 6), r1.x, r1.y, br1.x, br1.y);
+			pDC->ArcTo(r0.x - (r1.x - r0.x), r0.y + int ( doublemultiplier * (br1.y - r1.y - doubler)), r1.x, r1.y - int ( doublemultiplier * (br1.y - r1.y - doubler)), r1.x, r1.y, br1.x, br1.y);
 			pDC->LineTo(r0);
 		}
 		else
 		{
 			pDC->MoveTo(r0);
-			pDC->ArcTo(r0.x, r0.y + 1 * (br1.y - r1.y - 6), r1.x, r1.y - 1 * (br1.y - r1.y - 6), r1.x, r1.y, r0.x, r0.y);
+			pDC->ArcTo(r0.x, r0.y + int(1 * (br1.y - r1.y - singular)), r1.x, r1.y - int(1 * (br1.y - r1.y - singular)), r1.x, r1.y, r0.x, r0.y);
 			pDC->LineTo(r0);
 		}
 
@@ -173,47 +184,47 @@ void HyperPlaneViewAngle::HyperPlaneViewAngular2(CDC* pDC, int line = 1)
 		pDC->LineTo(ar1);
 		if (ar2.y > ar1.y)
 		{
-			pDC->ArcTo(r0.x - (r1.x - r0.x), r0.y - 2 * (r1.y - ar1.y - 6), r1.x, r1.y + 2 * (r1.y - ar1.y - 6), ar1.x, ar1.y, r1.x, r1.y);
+			pDC->ArcTo(r0.x - (r1.x - r0.x), r0.y - int(doublemultiplier * (r1.y - ar1.y - doubler)), r1.x, r1.y + int(doublemultiplier * (r1.y - ar1.y - doubler)), ar1.x, ar1.y, r1.x, r1.y);
 		}
 		else
 		{
-			pDC->ArcTo(r0.x, r0.y - 1 * (r1.y - ar1.y - 6), r1.x, r1.y + 1 * (r1.y - ar1.y - 6), (r0.x + r1.x) / 2, ar1.y, r1.x, r1.y);
+			pDC->ArcTo(r0.x, r0.y - int(1 * (r1.y - ar1.y - singular)), r1.x, r1.y + int(1 * (r1.y - ar1.y - singular)), (r0.x + r1.x) / 2, ar1.y, r1.x, r1.y);
 		}
 		pDC->LineTo(r1);
 		pDC->MoveTo(ar2);
-		pDC->ArcTo(r0.x - (r2.x - r0.x), r0.y - 2 * (r2.y - ar2.y - 6), r2.x, r2.y + 2 * (r2.y - ar2.y - 6), ar2.x, ar2.y, r2.x, r2.y);
+		pDC->ArcTo(r0.x - (r2.x - r0.x), r0.y - int(doublemultiplier * (r2.y - ar2.y - doubler)), r2.x, r2.y + int(doublemultiplier * (r2.y - ar2.y - doubler)), ar2.x, ar2.y, r2.x, r2.y);
 		pDC->LineTo(r2);
 		pDC->LineTo(r1);
 
 		pDC->MoveTo(r2);
 		if (ar2.y > ar1.y)
 		{
-			pDC->ArcTo(r0.x - (r1.x - r0.x), r0.y + 2 * (br1.y - r1.y - 6), r1.x, r1.y - 2 * (br1.y - r1.y - 6), r1.x, r1.y, br1.x, br1.y);
+			pDC->ArcTo(r0.x - (r1.x - r0.x), r0.y + int(doublemultiplier * (br1.y - r1.y - doubler)), r1.x, r1.y - int(doublemultiplier * (br1.y - r1.y - doubler)), r1.x, r1.y, br1.x, br1.y);
 			pDC->LineTo(br1);
 		}
 		else
 		{
-			pDC->ArcTo(r0.x, r0.y + 1 * (br1.y - r1.y - 6), r1.x, r1.y - 1 * (br1.y - r1.y - 6), r1.x, r1.y, (r0.x + r1.x) / 2, br1.y);
+			pDC->ArcTo(r0.x, r0.y + int(1 * (br1.y - r1.y - singular)), r1.x, r1.y - int(1 * (br1.y - r1.y - singular)), r1.x, r1.y, (r0.x + r1.x) / 2, br1.y);
 			pDC->LineTo(br1);
 		}
 		pDC->MoveTo(r2);
-		pDC->ArcTo(r0.x - (r2.x - r0.x), r0.y + 2 * (br2.y - r2.y - 6), r2.x, r2.y - 2 * (br2.y - r2.y - 6), r2.x, r2.y, br2.x, br2.y);
+		pDC->ArcTo(r0.x - (r2.x - r0.x), r0.y + int(doublemultiplier * (br2.y - r2.y - doubler)), r2.x, r2.y - int(doublemultiplier * (br2.y - r2.y - doubler)), r2.x, r2.y, br2.x, br2.y);
 		pDC->LineTo(br2);
 		pDC->LineTo(br1);
 
 		pDC->MoveTo(ar3);
-		pDC->ArcTo(r0.x - (r3.x - r0.x), r0.y - 2 * (r3.y - ar3.y - 6), r3.x, r3.y + 2 * (r3.y - ar3.y - 6), ar3.x, ar3.y, r3.x, r3.y);
+		pDC->ArcTo(r0.x - (r3.x - r0.x), r0.y - int(doublemultiplier * (r3.y - ar3.y - doubler)), r3.x, r3.y + int(doublemultiplier * (r3.y - ar3.y - doubler)), ar3.x, ar3.y, r3.x, r3.y);
 		pDC->LineTo(r3);
 		pDC->LineTo(r2);
 		pDC->MoveTo(ar3);
-		pDC->ArcTo(r0.x - (r2.x - r0.x), r0.y - 2 * (r2.y - ar2.y - 6), r2.x, r2.y + 2 * (r2.y - ar2.y - 6), ar2.x, ar2.y, r2.x, r2.y);
+		pDC->ArcTo(r0.x - (r2.x - r0.x), r0.y - int(doublemultiplier * (r2.y - ar2.y - doubler)), r2.x, r2.y + int(doublemultiplier * (r2.y - ar2.y - doubler)), ar2.x, ar2.y, r2.x, r2.y);
 		pDC->LineTo(r2);
 
 		pDC->MoveTo(r3);
-		pDC->ArcTo(r0.x - (r2.x - r0.x), r0.y + 2 * (br2.y - r2.y - 6), r2.x, r2.y - 2 * (br2.y - r2.y - 6), r2.x, r2.y, br2.x, br2.y);
+		pDC->ArcTo(r0.x - (r2.x - r0.x), r0.y + int(doublemultiplier * (br2.y - r2.y - doubler)), r2.x, r2.y - int(doublemultiplier * (br2.y - r2.y - doubler)), r2.x, r2.y, br2.x, br2.y);
 		pDC->LineTo(br3);
 		pDC->MoveTo(r3);
-		pDC->ArcTo(r0.x - (r3.x - r0.x), r0.y + 2 * (br3.y - r3.y - 6), r3.x, r3.y - 2 * (br3.y - r3.y - 6), r3.x, r3.y, br3.x, br3.y);
+		pDC->ArcTo(r0.x - (r3.x - r0.x), r0.y + int(doublemultiplier * (br3.y - r3.y - doubler)), r3.x, r3.y - int(doublemultiplier * (br3.y - r3.y - doubler)), r3.x, r3.y, br3.x, br3.y);
 		pDC->LineTo(br3);
 	}
 	else
@@ -221,75 +232,75 @@ void HyperPlaneViewAngle::HyperPlaneViewAngular2(CDC* pDC, int line = 1)
 		if (r0.y > r1.y)
 		{
 			pDC->MoveTo(r0);
-			pDC->ArcTo(r0.x - (r1.x - r0.x), r0.y - 1 * (r1.y - ar1.y), r1.x, r1.y + 1 * (r1.y - ar1.y), r1.x, r1.y, ar1.x, ar1.y);
+			pDC->ArcTo(r0.x - (r1.x - r0.x), r0.y - int(1 * (r1.y - ar1.y)), r1.x, r1.y + int(1 * (r1.y - ar1.y)), r1.x, r1.y, ar1.x, ar1.y);
 			pDC->LineTo(r0);
 		}
 		else
 		{
 			pDC->MoveTo(r0);
-			pDC->ArcTo(r0.x, r0.y - 1 * (r1.y - ar1.y), r1.x, r1.y + 1 * (r1.y - ar1.y), r1.x, r1.y, r0.x, r0.y);
+			pDC->ArcTo(r0.x, r0.y - int(1 * (r1.y - ar1.y)), r1.x, r1.y + int(1 * (r1.y - ar1.y)), r1.x, r1.y, r0.x, r0.y);
 			pDC->LineTo(r0);
 		}
 
 		if (r0.y > r1.y)
 		{
 			pDC->MoveTo(r0);
-			pDC->ArcTo(r0.x - (r1.x - r0.x), r0.y - 1 * (br1.y - r1.y), r1.x, r1.y + 1 * (br1.y - r1.y), br1.x, br1.y, r1.x, r1.y);
+			pDC->ArcTo(r0.x - (r1.x - r0.x), r0.y - int(1 * (br1.y - r1.y)), r1.x, r1.y + int(1 * (br1.y - r1.y)), br1.x, br1.y, r1.x, r1.y);
 			pDC->LineTo(r1);
 			pDC->LineTo(r0);
 		}
 		else
 		{
 			pDC->MoveTo(r0);
-			pDC->ArcTo(r0.x, r0.y - 1 * (br1.y - r1.y), r1.x, r1.y + 1 * (br1.y - r1.y), r0.x, r0.y, r1.x, r1.y);
+			pDC->ArcTo(r0.x, r0.y - int(1 * (br1.y - r1.y)), r1.x, r1.y + int(1 * (br1.y - r1.y)), r0.x, r0.y, r1.x, r1.y);
 			pDC->LineTo(r1);
 			pDC->LineTo(r0);
 		}
 
 		pDC->MoveTo(r1);
-		pDC->ArcTo(r0.x - (r2.x - r0.x), r0.y - 2 * (r2.y - ar2.y - 6), r2.x, r2.y + 2 * (r2.y - ar2.y - 6), r2.x, r2.y, ar2.x, ar2.y);
+		pDC->ArcTo(r0.x - (r2.x - r0.x), r0.y - int(doublemultiplier * (r2.y - ar2.y - doubler)), r2.x, r2.y + int(doublemultiplier * (r2.y - ar2.y - doubler)), r2.x, r2.y, ar2.x, ar2.y);
 		pDC->LineTo(ar2);
 		pDC->LineTo(ar1);
 		pDC->MoveTo(r1);
 		if (r0.y > r1.y)
 		{
-			pDC->ArcTo(r0.x - (r1.x - r0.x), r0.y - 1 * (r1.y - ar1.y), r1.x, r1.y + 1 * (r1.y - ar1.y), r1.x, r1.y, ar1.x, ar1.y);
+			pDC->ArcTo(r0.x - (r1.x - r0.x), r0.y - int(1 * (r1.y - ar1.y)), r1.x, r1.y + int(1 * (r1.y - ar1.y)), r1.x, r1.y, ar1.x, ar1.y);
 		}
 		else
 		{
-			pDC->ArcTo(r0.x, r0.y - 1 * (r1.y - ar1.y), r1.x, r1.y + 1 * (r1.y - ar1.y), r1.x, r1.y, ar1.x, ar1.y);
+			pDC->ArcTo(r0.x, r0.y - int(1 * (r1.y - ar1.y)), r1.x, r1.y + int(1 * (r1.y - ar1.y)), r1.x, r1.y, ar1.x, ar1.y);
 
 		}
 		pDC->LineTo(ar1);
 
 		pDC->MoveTo(br1);
 		pDC->LineTo(br2);
-		pDC->ArcTo(r0.x - (r2.x - r0.x), r0.y - 2 * (br2.y - r1.y - 6), r2.x, r2.y + 2 * (br2.y - r1.y - 6), br2.x, br2.y, r2.x, r2.y);
+		pDC->ArcTo(r0.x - (r2.x - r0.x), r0.y - int(doublemultiplier * (br2.y - r1.y - doubler)), r2.x, r2.y + int(doublemultiplier * (br2.y - r1.y - doubler)), br2.x, br2.y, r2.x, r2.y);
 		pDC->LineTo(r2);
 		pDC->LineTo(r1);
 		pDC->MoveTo(br1);
 		if (r0.y > r1.y)
 		{
-			pDC->ArcTo(r0.x - (r1.x - r0.x), r0.y - 1 * (br1.y - r1.y), r1.x, r1.y + 1 * (br1.y - r1.y), br1.x, br1.y, r1.x, r1.y);
+			pDC->ArcTo(r0.x - (r1.x - r0.x), r0.y - int(1 * (br1.y - r1.y)), r1.x, r1.y + int(1 * (br1.y - r1.y)), br1.x, br1.y, r1.x, r1.y);
 		}
 		else
 		{
-			pDC->ArcTo(r0.x, r0.y - 1 * (br1.y - r1.y), r1.x, r1.y + 1 * (br1.y - r1.y), br1.x, br1.y, r1.x, r1.y);
+			pDC->ArcTo(r0.x, r0.y - int(1 * (br1.y - r1.y)), r1.x, r1.y + int(1 * (br1.y - r1.y)), br1.x, br1.y, r1.x, r1.y);
 		}
 		pDC->LineTo(r1);
 
 		pDC->MoveTo(r3);
-		pDC->ArcTo(r0.x - (r3.x - r0.x), r0.y - 2 * (r2.y - ar3.y - 6), r3.x, r3.y + 2 * (r2.y - ar3.y - 6), r3.x, r3.y, ar3.x, ar3.y);
+		pDC->ArcTo(r0.x - (r3.x - r0.x), r0.y - int(doublemultiplier * (r2.y - ar3.y - doubler)), r3.x, r3.y + int(doublemultiplier * (r2.y - ar3.y - doubler)), r3.x, r3.y, ar3.x, ar3.y);
 		pDC->LineTo(ar2);
 		pDC->MoveTo(r3);
-		pDC->ArcTo(r0.x - (r2.x - r0.x), r0.y - 2 * (r1.y - ar2.y - 6), r2.x, r2.y + 2 * (r1.y - ar2.y - 6), r2.x, r2.y, ar2.x, ar2.y);
+		pDC->ArcTo(r0.x - (r2.x - r0.x), r0.y - int(doublemultiplier * (r1.y - ar2.y - doubler)), r2.x, r2.y + int(doublemultiplier * (r1.y - ar2.y - doubler)), r2.x, r2.y, ar2.x, ar2.y);
 		pDC->LineTo(ar2);
 
 		pDC->MoveTo(br2);
-		pDC->ArcTo(r0.x - (r3.x - r0.x), r0.y - 2 * (br3.y - r2.y - 6), r3.x, r3.y + 2 * (br3.y - r2.y - 6), br3.x, br3.y, r3.x, r3.y);
+		pDC->ArcTo(r0.x - (r3.x - r0.x), r0.y - int(doublemultiplier * (br3.y - r2.y - doubler)), r3.x, r3.y + int(doublemultiplier * (br3.y - r2.y - doubler)), br3.x, br3.y, r3.x, r3.y);
 		pDC->LineTo(r3);
 		pDC->MoveTo(br2);
-		pDC->ArcTo(r0.x - (r2.x - r0.x), r0.y - 2 * (br2.y - r1.y - 6), r2.x, r2.y + 2 * (br2.y - r1.y - 6), br2.x, br2.y, r2.x, r2.y);
+		pDC->ArcTo(r0.x - (r2.x - r0.x), r0.y - int(doublemultiplier * (br2.y - r1.y - doubler)), r2.x, r2.y + int(doublemultiplier * (br2.y - r1.y - doubler)), br2.x, br2.y, r2.x, r2.y);
 		pDC->LineTo(r2);
 		pDC->LineTo(r3);
 	}

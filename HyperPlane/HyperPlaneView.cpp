@@ -36,6 +36,8 @@ BEGIN_MESSAGE_MAP(CHyperPlaneView, CView)
 	ON_WM_CONTEXTMENU()
 	ON_WM_RBUTTONUP()
 	ON_WM_LBUTTONUP()
+	ON_WM_LBUTTONDOWN()
+	ON_WM_MOUSEMOVE()
 END_MESSAGE_MAP()
 
 // CHyperPlaneView construction/destruction
@@ -45,6 +47,12 @@ CHyperPlaneView::CHyperPlaneView()
 	EnableActiveAccessibility();
 	m_pSelection = NULL;
 	// TODO: add construction code here
+
+	m_b_mouseclick = false;
+	m_b_mousemove = false;
+	m_b_mouserelease = true;
+
+	m_c_rgba_red = m_c_rgba_green = m_c_rgba_blue = m_c_rgba_alpha = 0; // mean black initilize first
 
 	devicerect = new CRect;
 	firstdraw.PortInitialize(devicerect);
@@ -134,7 +142,7 @@ void CHyperPlaneView::OnDraw(CDC* pDC)
 
 	firstdraw.Draw(pDC);
 
-	if(clickCount % 2 == 0)
+	if(clickCount % 3 == 1)
 	{
 		//angular lined pen 
 		object1a.ChangeCenter(CPoint (100, 150));
@@ -181,7 +189,17 @@ void CHyperPlaneView::OnDraw(CDC* pDC)
 		object2c.HyperPlaneViewLinear2(pDC, 1);
 		object3c.ChangeCenter(CPoint(100 + 460, 700));
 		object3c.HyperPlaneViewLinear2(pDC, 1);
+
+
 	}
+
+	// Draw the object list from hyperplanepolygon
+	for (auto iter = pDoc->begin(); iter != pDoc->end(); ++iter)
+		for (const auto& posObj : *pDoc)
+		{
+			if (pDC->RectVisible(posObj->GetEnclosingRect()))
+				posObj->Draw(pDC, m_pSelected);
+		}
 }
 
 void CHyperPlaneView::HPTypeLoopDrawer_Test(CDC* pDC)
@@ -389,7 +407,6 @@ void CHyperPlaneView::OnInitialUpdate()
 
 	// TODO: remove this code when final selection model code is written
 	m_pSelection = NULL;    // initialize selection
-
 }
 
 
@@ -417,6 +434,75 @@ void CHyperPlaneView::OnBeginPrinting(CDC* /*pDC*/, CPrintInfo* /*pInfo*/)
 void CHyperPlaneView::OnEndPrinting(CDC* /*pDC*/, CPrintInfo* /*pInfo*/)
 {
 	// TODO: add cleanup after printing
+}
+
+std::shared_ptr<HyperPlanePolygon> CHyperPlaneView::CreateHyperPlanePolygon() const
+{
+	// Get a pointer to the document for this view
+	CHyperPlaneDoc* pDoc = GetDocument();
+	ASSERT_VALID(pDoc); // Verify the pointer is good
+
+	if (!pDoc)
+		return nullptr;
+
+	int c_rgba_red = m_c_rgba_red, c_rgba_green = m_c_rgba_green, c_rgba_blue = m_c_rgba_blue, c_rgba_alpha = m_c_rgba_alpha;
+
+	switch (pDoc->GetObjectColorType())
+	{
+		case HyperPlaneObjectColorType::BLACK_SINGLE :
+			c_rgba_red = c_rgba_green = c_rgba_blue = c_rgba_alpha = 0;
+			//break;
+		case HyperPlaneObjectColorType::RED_SINGLE :
+		{
+			c_rgba_red = 255; 
+			c_rgba_green = c_rgba_blue = c_rgba_alpha = 0;
+		
+		}break;
+		case HyperPlaneObjectColorType::GREEN_SINGLE :
+		{
+			c_rgba_green = 255; 
+			c_rgba_red = c_rgba_blue = c_rgba_alpha = 0;
+		
+		}break;
+		case HyperPlaneObjectColorType::BLUE_SINGLE :
+		{
+			c_rgba_blue = 255; 
+			c_rgba_red = c_rgba_green = c_rgba_alpha = 0;
+		
+		}break;
+		case HyperPlaneObjectColorType::ALPHA_SINGLE :
+		{
+			c_rgba_alpha = 128; 
+			c_rgba_red = c_rgba_green = c_rgba_blue = 0;
+		
+		}break;
+		default: 
+		{
+			; 
+		}
+	}
+		
+
+	switch (pDoc->GetObjectType())
+	{
+		case HyperPlaneObjectType::LINEAR_RECTANGLE:
+			return std::make_shared<HPRectangle>(m_mouseclick, m_mousemove, c_rgba_red, c_rgba_green, c_rgba_blue, c_rgba_alpha);
+		case HyperPlaneObjectType::LINEAR_CIRCLE:
+			return std::make_shared<HPCircle>(m_mouseclick, m_mousemove, c_rgba_red, c_rgba_green, c_rgba_blue, c_rgba_alpha);
+		case HyperPlaneObjectType::LINEAR_CURVE:
+			return std::make_shared<HPCurve>(m_mouseclick, m_mousemove, c_rgba_red, c_rgba_green, c_rgba_blue, c_rgba_alpha);
+		case HyperPlaneObjectType::LINEAR_LINE :
+			return std::make_shared<HPLine>(m_mouseclick, m_mousemove, c_rgba_red, c_rgba_green, c_rgba_blue, c_rgba_alpha);
+		default:
+		{
+			// Something's gone wrong
+			AfxMessageBox(_T("Bad object creation code"), MB_OK);
+			AfxAbort();
+			return nullptr;
+		}
+	}
+
+	//return std::shared_ptr<HyperPlanePolygon>();
 }
 
 void CHyperPlaneView::OnDestroy()
@@ -554,13 +640,6 @@ void CHyperPlaneView::OnFilePrint()
 
 }
 
-
-void CHyperPlaneView::OnRButtonUp(UINT /* nFlags */, CPoint point)
-{
-	ClientToScreen(&point);
-	OnContextMenu(this, point);
-}
-
 void CHyperPlaneView::OnContextMenu(CWnd* /* pWnd */, CPoint point)
 {
 #ifndef SHARED_HANDLERS
@@ -602,16 +681,174 @@ CHyperPlaneDoc* CHyperPlaneView::GetDocument() const // non-debug version is inl
 
 // CHyperPlaneView message handlers
 
-//Mouse event constructors.
+//Mouse event reconstructors.
 //*************************
+void CHyperPlaneView::OnRButtonUp(UINT /* nFlags */, CPoint point)
+{
+	ClientToScreen(&point);
+	OnContextMenu(this, point);
+}
+
 void CHyperPlaneView::OnLButtonUp(UINT nFlags, CPoint point)
 {
 	// TODO: Add your message handler code here and/or call default   
-	if(clickCount %2 == 0)Invalidate();
-	else OnInitialUpdate();
-	clickCount++;
+	
+	//if(clickCount %2 == 0)Invalidate();
+	//else OnInitialUpdate();
 
+	if (this == GetCapture())
+		ReleaseCapture(); // Stop capturing mouse messages
+
+	if (!m_b_mouserelease)
+	{
+		m_mouserelease = point;
+		m_b_mouserelease = true;
+		clickCount++;
+
+		if (m_pTempElement)
+		{
+			CRect aRect{ m_pTempElement->GetEnclosingRect() }; // Get enclosing rectangle
+
+			// Add the object pointer to the hyperplanepolygon
+			GetDocument()->AddPolygonObject(m_pTempElement);
+			
+			CClientDC aDC{ this }; // Create a device context
+			OnPrepareDC(&aDC); // Get origin adjusted
+			aDC.LPtoDP(aRect); // Convert to client coordinates
+			InvalidateRect(aRect); // Get the area redrawn
+
+			m_pTempElement.reset(); // Reset the temp object pointer
+		}
+
+		m_b_mouseclick = false;
+		m_b_mousemove = false;
+	}
+	else
+	{
+		m_b_mouserelease = false;
+		
+	}
+	
 	CView::OnLButtonUp(nFlags, point);
+}
+
+void CHyperPlaneView::OnLButtonDown(UINT nFlags, CPoint point)
+{
+	if (MK_LBUTTON && !m_b_mouseclick && !m_b_mousemove && m_b_mouserelease)
+	{
+		CClientDC aDC{ this }; // Create a device context
+		OnPrepareDC(&aDC); // Get origin adjusted
+		aDC.DPtoLP(&point); // Convert point to logical coordinates
+
+		m_mouseclick = point;
+		m_b_mouseclick = true;
+		m_b_mouserelease = false;
+		SetCapture(); // Capture subsequent mouse messages
+		clickCount++;
+	}
+	else
+	{
+		//m_b_mouseclick = false;
+	}
+
+	CView::OnLButtonDown(nFlags, point);
+}
+
+void CHyperPlaneView::OnMouseMove(UINT nFlags, CPoint point)
+{
+	CClientDC aDC{ this }; // Device context for the current view
+	OnPrepareDC(&aDC); // Get origin adjusted
+	aDC.DPtoLP(&point); // Convert point to logical coordinates
+
+	if ((nFlags&MK_LBUTTON) && (this == GetCapture()))
+	{
+		if (m_b_mouseclick)
+		{
+			m_mousemove = point;
+			if (!m_b_mousemove)
+			{
+				m_b_mousemove = true;
+				m_b_mouserelease = false;
+				clickCount++;
+
+				// Create a temporary element of the type and color that
+				// is recorded in the document object, and draw it
+				if (!m_pTempElement)
+				{
+					m_pTempElement = CreateHyperPlanePolygon();
+					//First_point and second_point initiliazed and with deep avalible variable for temp object
+					//So temp object firstly created without draw ability
+				}
+			}
+			else if(m_b_mouseclick && m_b_mousemove && !m_b_mouserelease)
+			{
+				//if first point created and mousemove active
+				if (m_pTempElement)
+				{
+					// An element was created previously
+					if (HyperPlaneObjectType::LINEAR_CURVE == GetDocument()->GetObjectType()) // A curve?
+					{ 
+						// We are drawing a curve so add a point segment to the existing curve
+						std::dynamic_pointer_cast<HPCurve>(m_pTempElement)->AddPointSegment(m_mousemove);
+
+						//CClientDC aDC(this); //When mouse move ability continues get device content adres for minimun 3 points include object
+						//aDC.SetROP2(R2_NOTXORPEN);
+						aDC.SetROP2(R2_NOTMERGEPEN);
+						m_pTempElement->Draw(&aDC); // Now draw it
+						//return; // We are done
+					}
+					else
+					{
+						// If we get to here it's not a curve so
+						// redraw the old element so it disappears from the view
+						//aDC.SetROP2(R2_NOTXORPEN); // Set the drawing mode
+						//m_pTempElement->Draw(&aDC); // Redraw the old element to erase it
+					}
+				}
+			}
+		}
+	}
+	else
+	{
+		m_b_mouseclick = false;
+		m_b_mouserelease = true;
+		m_b_mousemove = false;
+
+		auto pOldSelected = m_pSelected;
+		m_pSelected = GetDocument()->FindElement(point);
+
+		if (m_pSelected != pOldSelected)
+		{
+			if (m_pSelected)
+				GetDocument()->UpdateAllViews(nullptr, 0, m_pSelected.get());
+			if (pOldSelected)
+				GetDocument()->UpdateAllViews(nullptr, 0, pOldSelected.get());
+		}
+	}
+
+	CView::OnMouseMove(nFlags, point);
 }
 //*************************
 //Mouse event constructor.
+
+void CHyperPlaneView::OnUpdate(CView* pSender, LPARAM lHint, CObject* pHint)
+{
+	// TODO: Özelleþmiþ kodunuzu buraya ekleyin ve/ya da taban sýnýfýný çaðýrýn
+
+	// Invalidate the area corresponding to the element pointed to
+	// by the third argument, otherwise invalidate the whole client area
+	if (pHint)
+	{
+		//InvalidateRect(dynamic_cast<HyperPlanePolygon*>(pHint)->GetEnclosingRect());
+		CClientDC aDC{ this }; // Create a device context
+		OnPrepareDC(&aDC); // Get origin adjusted
+						   // Get the enclosing rectangle and convert to client coordinates
+		CRect aRect{ dynamic_cast<HyperPlanePolygon*>(pHint)->GetEnclosingRect() };
+		aDC.LPtoDP(aRect);
+		InvalidateRect(aRect); // Get the area redrawn
+	}
+	else
+	{
+		InvalidateRect(nullptr);
+	}
+}

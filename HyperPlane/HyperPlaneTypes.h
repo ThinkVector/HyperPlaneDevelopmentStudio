@@ -1,0 +1,25 @@
+#pragma once
+class HyperPlaneTypes
+{
+public:
+	HyperPlaneTypes();
+	~HyperPlaneTypes();
+};
+
+enum class HyperPlaneObjectType {	SURFACE_SINGLE, VOLUME_SINGLE, 
+									AREA_SINGLE, ANGULAR_SINGLE, 
+									LINEAR_SINGLE, POINT_SINGLE, 
+									MIX_SINGLE,
+									SURFACE_MULTI, VOLUME_MULTI,
+									ANGULAR_MULTI, LINEAR_MULTI, 
+									POINT_MULTI, 
+									MIX_MULTI,
+									LINEAR_LINE, LINEAR_RECTANGLE, 
+									LINEAR_CIRCLE, LINEAR_CURVE};
+
+enum class HyperPlaneObjectColorType {	RED_MINUS, GREEN_MINUS, BLUE_MINUS, ALPHA_MINUS,
+										RED_PLUS, GREEN_PLUS, BLUE_PLUS, ALPHA_PLUS,
+										RED_MIN, GREEN_MIN, BLUE_MIN, ALPHA_MIN,
+										RED_MAX, GREEN_MAX, BLUE_MAX, ALPHA_MAX,
+										RED_MIDDLE, GREEN_MIDDLE, BLUE_MIDDLE, ALPHA_MIDDLE,
+										RED_SINGLE, GREEN_SINGLE, BLUE_SINGLE, BLACK_SINGLE, WHITE_SINGLE, ALPHA_SINGLE};
