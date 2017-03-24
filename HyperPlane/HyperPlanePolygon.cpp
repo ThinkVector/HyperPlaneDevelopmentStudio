@@ -7,10 +7,6 @@
 
 // HyperPlanePolygon member functions
 //***********************************
-HyperPlanePolygon::~HyperPlanePolygon()
-{
-}
-
 HyperPlanePolygon::HyperPlanePolygon(const CPoint & _p_start, int _rgba_red, int _rgba_green, int _rgba_blue, int _rgba_alpha, int _w_penwidth) :
 	hpp_p_start{ _p_start }, hpp_rgba_red{ _rgba_red }, hpp_rgba_green{ _rgba_green }, hpp_rgba_blue{ _rgba_blue }, hpp_rgba_alpha{ _rgba_alpha }, hpp_w_pen{ _w_penwidth } {}
 
@@ -50,10 +46,6 @@ void HyperPlanePolygon::CreatePen(CPen& _pen_apen, std::shared_ptr<HyperPlanePol
 
 // HPLine member functions
 //************************
-HPLine::~HPLine(void)
-{
-}
-
 HPLine::HPLine(const CPoint& _p_start, const CPoint& _p_end, int _rgba_red, int _rgba_green, int _rgba_blue, int _rgba_alpha) :
 	HyperPlanePolygon{ _p_start, _rgba_red, _rgba_green, _rgba_blue, _rgba_alpha }, hpp_p_end{ _p_end }
 {
@@ -62,16 +54,6 @@ HPLine::HPLine(const CPoint& _p_start, const CPoint& _p_end, int _rgba_red, int 
 	hpp_r_region.NormalizeRect();
 	hpp_r_region.InflateRect(hpp_w_pen, hpp_w_pen);
 }
-
-//void HPLine::CreatePen(CPen & _pen_apen)
-//{
-//	if (!_pen_apen.CreatePen(PS_SOLID, hpp_w_pen, COLORREF(RGB(hpp_rgba_red, hpp_rgba_blue, hpp_rgba_red))))
-//	{
-//		// Pen creation failed     
-//		AfxMessageBox(_T("Drawing pen width creation failed."), MB_OK);
-//		AfxAbort();
-//	}
-//}
 
 void HPLine::Draw(CDC* pDC, std::shared_ptr<HyperPlanePolygon> _posObjList)
 {
@@ -90,10 +72,6 @@ void HPLine::Draw(CDC* pDC, std::shared_ptr<HyperPlanePolygon> _posObjList)
 
 // HPRectangle member functions
 //*****************************
-HPRectangle::~HPRectangle()
-{
-}
-
 HPRectangle::HPRectangle(const CPoint & _p_start, const CPoint & _p_end, int _rgba_red, int _rgba_green, int _rgba_blue, int _rgba_alpha) :
 	HyperPlanePolygon{ _p_start, _rgba_red, _rgba_green, _rgba_blue, _rgba_alpha }
 {
@@ -129,10 +107,6 @@ void HPRectangle::Draw(CDC* pDC, std::shared_ptr<HyperPlanePolygon> _posObjList)
 
 // HPCircle member functions
 //**************************
-HPCircle::~HPCircle()
-{
-}
-
 HPCircle::HPCircle(const CPoint & _p_start, const CPoint & _p_end, int _rgba_red, int _rgba_green, int _rgba_blue, int _rgba_alpha) :
 	HyperPlanePolygon{ _p_start, _rgba_red, _rgba_green, _rgba_blue, _rgba_alpha }
 {
@@ -171,10 +145,6 @@ void HPCircle::Draw(CDC* pDC, std::shared_ptr<HyperPlanePolygon> _posObjList)
 
 // HPCurve member functions
 //*************************
-HPCurve::~HPCurve()
-{
-}
-
 HPCurve::HPCurve(const CPoint & _p_first, const CPoint & _p_second, int _rgba_red, int _rgba_green, int _rgba_blue, int _rgba_alpha) :
 	HyperPlanePolygon{ _p_first, _rgba_red, _rgba_green, _rgba_blue, _rgba_alpha }
 {

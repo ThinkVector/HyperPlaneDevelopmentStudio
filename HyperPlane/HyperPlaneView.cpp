@@ -476,10 +476,7 @@ std::shared_ptr<HyperPlanePolygon> CHyperPlaneView::CreateHyperPlanePolygon() co
 			c_rgba_red = c_rgba_green = c_rgba_blue = 0;
 		
 		}break;
-		default: 
-		{
-			; 
-		}
+		default:;
 	}
 		
 

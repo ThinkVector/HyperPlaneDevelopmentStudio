@@ -34,13 +34,15 @@
 
 // HyperPlanePolygon command target
 
-static const int 
-	select_c_rgba_red = 255, select_c_rgba_green = 0, select_c_rgba_blue = 180, select_c_rgba_alpha = 255; // Highlight color
+// Highlight color
+static const int select_c_rgba_red = 128, select_c_rgba_green = 255, select_c_rgba_blue = 255, select_c_rgba_alpha = 255;
 
+// HyperPlanePolygon : CObject members
+// ***********************************
 class HyperPlanePolygon : public CObject
 {
 public:
-	virtual ~HyperPlanePolygon();
+	virtual ~HyperPlanePolygon() {};
 	//virtual void Draw(CDC* pDC) {} // Virtual draw operation without highlight color
 	virtual void Draw(CDC* pDC, std::shared_ptr<HyperPlanePolygon> _posObjList = nullptr) {}
 	const CRect& GetEnclosingRect() const { return hpp_r_region; }
@@ -65,19 +67,21 @@ protected:
 	int hpp_rgba_alpha;
 
 protected:
-	HyperPlanePolygon();
+	HyperPlanePolygon() {};
 	HyperPlanePolygon(const CPoint& _p_start, int _rgba_red, int _rgba_green, int _rgba_blue, int _rgba_alpha, int _w_penwidth = 1);
 };
+// ***********************************
+// HyperPlanePolygon : CObject members
 
-
+// HPLine: HyperPlanePolygon : CObject members
+// *******************************************
 class HPLine : public HyperPlanePolygon
 {
 public:
-	virtual ~HPLine(void);
+	virtual ~HPLine(void) {};
 	virtual void Draw(CDC* pDC, std::shared_ptr<HyperPlanePolygon> _posObjList = nullptr) override; // Function to display a line
 
 	HPLine(const CPoint& _p_start, const CPoint& _p_end, int _rgba_red, int _rgba_green, int _rgba_blue, int _rgba_alpha);
-	//void CreatePen(CPen& _pen_apen);
 
 public:
 	//HPLine& operator = (const HPLine &_other); // array of operator
@@ -87,13 +91,17 @@ protected:
 	CPoint hpp_p_end;
 
 protected:
-	HPLine();
+	HPLine() {};
 };
+// *******************************************
+// HPLine: HyperPlanePolygon : CObject members
 
+// HPRectangle: HyperPlanePolygon : CObject members
+// ************************************************
 class HPRectangle : public HyperPlanePolygon
 {
 public:
-	virtual ~HPRectangle();
+	virtual ~HPRectangle() {};
 	virtual void Draw(CDC* pDC, std::shared_ptr<HyperPlanePolygon> _posObjList = nullptr) override; // Function to display a rectangle
 
 	HPRectangle(const CPoint& _p_start, const CPoint& _p_end, int _rgba_red, int _rgba_green, int _rgba_blue, int _rgba_alpha);
@@ -104,13 +112,17 @@ public:
 
 protected:
 	CPoint hpp_p_bottomright;	// Bottom-right point for the rectangle;
-	HPRectangle();				// Default constructor - should not be used 
+	HPRectangle() {};				// Default constructor - should not be used 
 };
+// ************************************************
+// HPRectangle: HyperPlanePolygon : CObject members
 
+// HPCircle: HyperPlanePolygon : CObject members
+// *********************************************
 class HPCircle : public HyperPlanePolygon
 {
 public:
-	virtual ~HPCircle();
+	virtual ~HPCircle() {};
 	virtual void Draw(CDC* pDC, std::shared_ptr<HyperPlanePolygon> _posObjList = nullptr) override; // Function to display a circle
 
 	HPCircle(const CPoint& _p_start, const CPoint& _p_end, int _rgba_red, int _rgba_green, int _rgba_blue, int _rgba_alpha);
@@ -121,13 +133,17 @@ public:
 
 protected:
 	CPoint hpp_p_bottomright;	// Bottom-right point for the rectangle;
-	HPCircle();				// Default constructor - should not be used 
+	HPCircle() {};				// Default constructor - should not be used 
 };
+// *********************************************
+// HPCircle: HyperPlanePolygon : CObject members
 
+// HPCurve: HyperPlanePolygon : CObject members
+// ********************************************
 class HPCurve : public HyperPlanePolygon
 {
 public:
-	virtual ~HPCurve();
+	virtual ~HPCurve() {};
 	virtual void Draw(CDC* pDC, std::shared_ptr<HyperPlanePolygon> _posObjList = nullptr) override; // Function to display a curve
 
 	HPCurve(const CPoint& _p_first, const CPoint& _p_second, int _rgba_red, int _rgba_green, int _rgba_blue, int _rgba_alpha);
@@ -140,5 +156,7 @@ public:
 
 protected:
 	std::vector<CPoint> hpp_p_points;           // Points defining the curve 
-	HPCurve();				// Default constructor - should not be used 
+	HPCurve() {};				// Default constructor - should not be used 
 };
+// ********************************************
+// HPCurve: HyperPlanePolygon : CObject members
