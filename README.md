@@ -24,6 +24,8 @@ References:
 Angle on 90' 90' dimension:
  https://www.desmos.com/calculator/rugmr8viqi
 
+These techniques, machines and computerized systems are amazing. Quite difficult by hand.
+
 -----------------------------------------------
 45° degree auto division completion.
 
