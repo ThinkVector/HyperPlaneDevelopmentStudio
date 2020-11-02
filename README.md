@@ -20,32 +20,29 @@ References:
 	https://www.facebook.com/measurablescience/posts/1320931411260270
 
 
------------------------------------------------
-Angle on 90' 90' dimension:
- https://www.desmos.com/calculator/rugmr8viqi
+Additional machine and computerized mathematical methods:
 
-These techniques, machines and computerized systems are amazing. Quite difficult by hand.
+ Angles on 90' 90' dimension:
+  These techniques, machines and computerized systems are amazing. Quite difficult by hand.
+  https://www.desmos.com/calculator/rugmr8viqi
 
------------------------------------------------
-45° degree auto division completion.
 
- root(a+b) = root(2)
+ 0° to 45° degree auto division completion:
+
+  root(a+b) = root(2)
  
- a goes to 0 to 2
- b goes to 2 to 0
- 
- a goes to 2 to 0
- b goes to 0 to 2
+  a goes to 0 to 2
+  b goes to 2 to 0
 
------------------------------------------------
-30° and 60° degree auto division completion.
+  a goes to 2 to 0
+  b goes to 0 to 2
 
- root(a+b) = root(3)
- 
- a goes to 0 to 3
- b goes to 3 to 0
- 
- a goes to 3 to 0
- b goes to 0 to 3
+ 0° to 30° and 0° to 60° degree auto division completion:
 
- -----------------------------------------------
+  root(a+b) = root(3)
+ 
+  a goes to 0 to 3
+  b goes to 3 to 0
+
+  a goes to 3 to 0
+  b goes to 0 to 3
