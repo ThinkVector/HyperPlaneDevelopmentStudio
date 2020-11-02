@@ -23,7 +23,8 @@ References:
 Additional machine and computerized mathematical methods: 
 
 	Angles on 90' 90' dimension:
-	These techniques are amazing in machines and computerized systems. It is quite difficult to solve it manually (by hand).
+	These techniques are amazing in machines and computerized systems.
+	It is quite difficult to solve it manually (by hand).
 	https://www.desmos.com/calculator/rugmr8viqi
 	
 		
