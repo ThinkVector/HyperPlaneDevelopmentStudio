@@ -11,6 +11,7 @@ Grand Abstract: Hyper Plane Development Studio for hyper operating system, hyper
 	PS: Personal (OR Personal Devices) Systems
 
 
+
 References: 
 
 	https://github.com/ThinkVector/VECTOR
@@ -18,6 +19,7 @@ References:
 	https://github.com/ThinkVector/VECTOR/blob/master/primeVectorClass.php
 	https://github.com/ThinkVector/VECTOR/blob/master/Readme.txt
 	https://www.facebook.com/measurablescience/posts/1320931411260270
+
 
 
 Additional machine and computerized mathematical methods: 
@@ -48,3 +50,17 @@ Additional machine and computerized mathematical methods:
 		
 			a goes to 3 to 0
 			b goes to 0 to 3
+
+
+
+Additional 6D cosmic shell methods:
+
+	Hardware Vertical and Horizontal Plane (HVHP):
+	Computer science hardware developments and extensions plane. CPU, GPU, RAM, STORAGE, CONNECTIONS, SOUND, MAINBOARD.
+	
+		Thingiverse: Online 3D printing and other methods.
+		https://www.thingiverse.com/thing:3715219
+
+		Tinkercad: Online 3D printing and other methods.
+		https://www.tinkercad.com/things/8IWZmbmf2F9 
+		
