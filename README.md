@@ -29,7 +29,7 @@ Additional machine and computerized mathematical methods:
 	
 		
 		0° to 45° degree auto division completion:
-		(angle 1/8 true in infinity division):
+		(Angle 1/8 true in infinity division. 1 angle = 360°):
 		
 			root(a+b) = root(2)
 		
@@ -41,7 +41,7 @@ Additional machine and computerized mathematical methods:
 		
 		
 		0° to 30° and 0° to 60° degree auto division completion:
-		(angle 1/6 and 1/12 true in infinity division)
+		(Angle 1/6 and 1/12 true in infinity division. 1 angle = 360°)
 		
 			root(a+b) = root(3)
 		
