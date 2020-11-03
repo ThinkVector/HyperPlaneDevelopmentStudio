@@ -55,7 +55,8 @@ Additional machine and computerized mathematical methods:
 Additional 6D cosmic shell methods:
 
 	Hardware Vertical and Horizontal Plane (HVHP):
-	Computer science hardware developments and extensions plane. CPU, GPU, RAM, STORAGE, CONNECTIONS, SOUND, MAINBOARD.
+	Computer science hardware developments and extensions plane.
+	CPU, GPU, RAM, STORAGE, CONNECTIONS, SOUND, MAINBOARD.
 	
 		Thingiverse: Online 3D printing and other methods.
 		https://www.thingiverse.com/thing:3715219
