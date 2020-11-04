@@ -42,17 +42,17 @@ Additional machine and computerized mathematical methods:
 			a goes to 2 to 0
 			b goes to 0 to 2
 
-			________
+			___45°___
 			a = 2 { 1 <= a <= 2 : step=0.00001 }
 			b = 2 - a
-			________
+			_________
 			a1 = sqrt( a )
 			b1 = sqrt( b )
 			________
 			AB ( a1 , b1) point gives cartesian points.
 			AB ( a1 , b1) series gives 0° to 45° degre of a 360° degre.
 			8 X AB ( a1 , b1) series gives 8 X 1/8 degre of 1 angle infinity.
-			________
+			_________
 
 		
 		0° to 30° and 0° to 60° degree auto division completion:
@@ -69,19 +69,30 @@ Additional machine and computerized mathematical methods:
 			a goes to 3 to 0
 			b goes to 0 to 3
 
-			________
+			___30°___
 			a = 2 { 3/2 <= a <= 2 : step=0.00001 }
 			b = 2 - a
-			________
+			_________
 			a1 = sqrt( a )
 			b1 = sqrt( b )
-			________
+			_________
 			AB ( a1 , b1) point gives cartesian points.
 			AB ( a1 , b1) series gives 0° to 30° degre of a 360° degre.
 			12 X AB ( a1 , b1) series gives 12 X 1/12 degre of 1 angle infinity.
-			________
+			_________
 
 
+			___60°___
+			a = 4 { 1 <= a <= 4 : step=0.00001 }
+			b = 4 - a
+			_________
+			a1 = sqrt( a )
+			b1 = sqrt( b )
+			_________
+			AB ( a1 , b1) point gives cartesian points.
+			AB ( a1 , b1) series gives 0° to 60° degre of a 360° degre.
+			6 X AB ( a1 , b1) series gives 6 X 1/6 degre of 1 angle infinity.
+			_________
 
 Additional 6D cosmic shell methods:
 
