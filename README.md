@@ -51,7 +51,7 @@ Additional machine and computerized mathematical methods:
 			________
 			AB ( a1 , b1) point gives cartesian points.
 			AB ( a1 , b1) series gives 0° to 45° degre of a 360° degre.
-			8 X AB ( a1 , b1) series gives 8 X 1/8 degre of 1 angle infinity.
+			8 X AB ( a1 , b1) series give 8 X 1/8 degre of 1 angle infinity.
 			_________
 
 		
@@ -78,7 +78,7 @@ Additional machine and computerized mathematical methods:
 			_________
 			AB ( a1 , b1) point gives cartesian points.
 			AB ( a1 , b1) series gives 0° to 30° degre of a 360° degre.
-			12 X AB ( a1 , b1) series gives 12 X 1/12 degre of 1 angle infinity.
+			12 X AB ( a1 , b1) series give 12 X 1/12 degre of 1 angle infinity.
 			_________
 
 
@@ -91,7 +91,7 @@ Additional machine and computerized mathematical methods:
 			_________
 			AB ( a1 , b1) point gives cartesian points.
 			AB ( a1 , b1) series gives 0° to 60° degre of a 360° degre.
-			6 X AB ( a1 , b1) series gives 6 X 1/6 degre of 1 angle infinity.
+			6 X AB ( a1 , b1) series give 6 X 1/6 degre of 1 angle infinity.
 			_________
 
 Additional 6D cosmic shell methods:
