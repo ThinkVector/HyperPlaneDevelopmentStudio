@@ -113,4 +113,5 @@ In near future:
 
 	Nir cube of 9D unreal meta prime reality 
 	will support to us. Nowadays, like 
-	90' 90' of 2D unreal meta prime reality. 
+	90' 90' of 2D unreal meta prime reality.
+	Then, unreal meta sphere easy to manage.
