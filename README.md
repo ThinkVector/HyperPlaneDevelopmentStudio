@@ -109,7 +109,8 @@ Additional 6D cosmic shell methods:
 
 
 
+In near future: 
 
-	Additional in near future: 9D. unreal meta prime reality of 
+	9D. unreal meta prime reality of 
 	nir cube will support to us. Nowadays, like 2D. unreal meta 
 	prime reality of 90' 90'.
