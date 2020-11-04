@@ -70,7 +70,7 @@ Additional machine and computerized mathematical methods:
 			b goes to 0 to 3
 
 			________
-			a = 2 { 1 <= a <= 2 : step=0.00001 }
+			a = 2 { 3/2 <= a <= 2 : step=0.00001 }
 			b = 2 - a
 			________
 			a1 = sqrt( a )
