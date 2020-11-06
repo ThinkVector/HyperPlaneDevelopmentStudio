@@ -16,7 +16,7 @@ References:
 	https://github.com/ThinkVector/VECTOR
 	https://github.com/ThinkVector/VECTOR/blob/master/Basic.Object.Transformation.txt
 	https://github.com/ThinkVector/VECTOR/blob/master/primeVectorClass.php
-	https://github.com/ThinkVector/VECTOR/blob/master/Readme.txt
+	https://github.com/ThinkVector/VECTOR/blob/master/Readme.txt 
 	https://www.facebook.com/measurablescience/posts/1320931411260270
 
 
