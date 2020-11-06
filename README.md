@@ -115,3 +115,9 @@ In near future:
 	will support to us. Nowadays, like 
 	90' 90' of 2D unreal meta prime reality.
 	Then, unreal meta sphere easy to manage.
+	
+	In the vector of prime set (VP, VPR, VUP, VUPR, VDP, VDPR)
+	most power of this set VP, next VUP. VUP is UNREAL DAUGHTER 
+	PRIME for generally call for male kind prime's. When 
+	work with this special reality method, you can 
+	feel these features in their offspring.
