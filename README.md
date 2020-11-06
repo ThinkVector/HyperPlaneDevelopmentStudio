@@ -118,6 +118,7 @@ In near future:
 	
 	In the vector of prime set (VP, VPR, VUP, VUPR, VDP, VDPR)
 	most power of this set VP, next VUP. VUP is UNREAL DAUGHTER 
-	PRIME for generally call for male kind prime's. When 
-	work with this special reality method, you can 
-	feel these features in their offspring.
+	PRIME for generally call for male kind prime's. VUP is 
+	generally UNREAL DAUGHTER PRIME for this call for 
+	it's male kind prime. 2D Hyper Mekanik Dimension call next
+	90' 90' - 2D unreal daughter dimension method.
