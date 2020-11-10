@@ -29,7 +29,7 @@ Additional machine and computerized mathematical methods:
 	
 		
 		0° to 45° degree auto division completion:
-		(Angle 1/8 true in infinity division. 1 angle = 360°.
+		(Angle 1/8 true in infinity division. 1 angle = 360° degree.
 		In this work https://www.desmos.com/calculator/rugmr8viqi
 		c1 and d1 alike a and b. It is meant to facilitate 
 		calculations in computer environment, without confusion.)
@@ -50,13 +50,13 @@ Additional machine and computerized mathematical methods:
 			b1 = sqrt( b )
 			________
 			AB ( a1 , b1) point gives cartesian points.
-			AB ( a1 , b1) series gives 0° to 45° degre of a 360° degre.
-			8 X AB ( a1 , b1) series give 8 X 1/8 degre of 1 angle infinity.
+			AB ( a1 , b1) series gives 0° to 45° degree of a 360° degree.
+			8 X AB ( a1 , b1) series give 8 X 1/8 degree of 1 angle infinity.
 			_________
 
 		
 		0° to 30° and 0° to 60° degree auto division completion:
-		(Angle 1/6 and 1/12 true in infinity division. 1 angle = 360°.
+		(Angle 1/6 and 1/12 true in infinity division. 1 angle = 360° degree.
 		In this work https://www.desmos.com/calculator/rugmr8viqi
 		c1 and d1 alike a and b. It is meant to facilitate 
 		calculations in computer environment, without confusion.)
@@ -77,8 +77,8 @@ Additional machine and computerized mathematical methods:
 			b1 = sqrt( b )
 			_________
 			AB ( a1 , b1) point gives cartesian points.
-			AB ( a1 , b1) series gives 0° to 30° degre of a 360° degre.
-			12 X AB ( a1 , b1) series give 12 X 1/12 degre of 1 angle infinity.
+			AB ( a1 , b1) series gives 0° to 30° degre of a 360° degree.
+			12 X AB ( a1 , b1) series give 12 X 1/12 degree of 1 angle infinity.
 			_________
 
 
@@ -90,8 +90,8 @@ Additional machine and computerized mathematical methods:
 			b1 = sqrt( b )
 			_________
 			AB ( a1 , b1) point gives cartesian points.
-			AB ( a1 , b1) series gives 0° to 60° degre of a 360° degre.
-			6 X AB ( a1 , b1) series give 6 X 1/6 degre of 1 angle infinity.
+			AB ( a1 , b1) series gives 0° to 60° degree of a 360° degree.
+			6 X AB ( a1 , b1) series give 6 X 1/6 degree of 1 angle infinity.
 			_________
 
 Additional 6D cosmic shell methods:
