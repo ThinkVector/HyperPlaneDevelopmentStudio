@@ -27,7 +27,6 @@ Additional machine and computerized mathematical methods:
 	It is quite difficult to solve it manually (by hand).
 	https://www.desmos.com/calculator/rugmr8viqi
 	
-		
 		0° to 45° degree auto division completion:
 		(Angle 1/8 true in infinity division. 1 angle = 360° degree.
 		In this work https://www.desmos.com/calculator/rugmr8viqi
@@ -53,8 +52,7 @@ Additional machine and computerized mathematical methods:
 			AB ( a1 , b1) series gives 0° to 45° degree of a 360° degree.
 			8 X AB ( a1 , b1) series give 8 X 1/8 degree of 1 angle infinity.
 			_________
-
-		
+	
 		0° to 30° and 0° to 60° degree auto division completion:
 		(Angle 1/6 and 1/12 true in infinity division. 1 angle = 360° degree.
 		In this work https://www.desmos.com/calculator/rugmr8viqi
@@ -81,7 +79,6 @@ Additional machine and computerized mathematical methods:
 			12 X AB ( a1 , b1) series give 12 X 1/12 degree of 1 angle infinity.
 			_________
 
-
 			___60°___
 			a = 4 { 1 <= a <= 4 : step=0.00001 }
 			b = 4 - a
@@ -93,6 +90,7 @@ Additional machine and computerized mathematical methods:
 			AB ( a1 , b1) series gives 0° to 60° degree of a 360° degree.
 			6 X AB ( a1 , b1) series give 6 X 1/6 degree of 1 angle infinity.
 			_________
+
 
 Additional 6D cosmic shell methods:
 
@@ -110,8 +108,6 @@ Additional 6D cosmic shell methods:
 		https://www.tinkercad.com/things/8IWZmbmf2F9 
 
 
-
-
 In near future: 
 
 	Nir cube of 9D unreal meta prime reality 
@@ -123,3 +119,9 @@ In near future:
 	most power of this set VP, next VUP. VUP is generally UNREAL DAUGHTER 
 	PRIME call for it's male kind prime's. 2D Hyper Mechanic Dimension call next
 	90' 90' - 2D unreal daughter dimension method.
+
+
+True in all the time:
+
+	"VECTOR" kind of UNREAL META PRIME reality.
+	
