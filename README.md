@@ -123,5 +123,5 @@ In near future:
 
 True in all the time:
 
-	"VECTOR" kind of UNREAL META PRIME reality.
+	"VECTOR" kind of UNREAL META PRIME (VUP) reality.
 	
