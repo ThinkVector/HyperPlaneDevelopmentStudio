@@ -99,6 +99,9 @@ Additional 6D cosmic shell methods:
 	Hardware Vertical and Horizontal Plane (HVHP):
 	Computer science hardware developments and extensions plane.
 	CPU, GPU, RAM, STORAGE, CONNECTIONS, SOUND, MAINBOARD.
+	Variety type for each need 1/1 mainplane, and 6/6 subplane.
+	Sample: "Subplane ALU 1/6, and 5/6 subplane GPU, also 1/1 mainplane GPU."
+	Sample: "Maintain and best re-creation is most important."
 	
 		Thingiverse: Online 3D printing and other methods.
 		https://www.thingiverse.com/thing:3715219
