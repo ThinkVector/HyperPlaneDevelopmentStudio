@@ -123,5 +123,8 @@ In near future:
 
 True in all the time:
 
-	"VECTOR" kind of UNREAL META PRIME (VUP) reality.
+	* "VECTOR" kind of UNREAL META PRIME (VUP) reality.
+	* Angle 1/4 true in infinity division.
+	* Angle 1/8 true in infinity division.
+	* Angle 1/12 true in infinity division.
 	
