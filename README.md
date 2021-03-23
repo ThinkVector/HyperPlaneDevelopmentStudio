@@ -51,6 +51,8 @@ Additional machine and computerized mathematical methods:
 			AB ( a1 , b1) point gives cartesian points.
 			AB ( a1 , b1) series gives 0° to 45° degree of a 360° degree.
 			8 X AB ( a1 , b1) series give 8 X 1/8 degree of 1 angle infinity.
+			This Order: 2D: VUP Auto 1/4, then, 1/8, then 1/16, 1/32 ans so its cartesian.
+
 			_________
 	
 		0° to 30° and 0° to 60° degree auto division completion:
