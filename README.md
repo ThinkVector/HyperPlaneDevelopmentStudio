@@ -18,6 +18,7 @@ References:
 	https://github.com/ThinkVector/VECTOR/blob/master/primeVectorClass.php
 	https://github.com/ThinkVector/VECTOR/blob/master/Readme.txt 
 	https://www.facebook.com/measurablescience/posts/1320931411260270
+	https://www.thingiverse.com/groups/flying-and-ground-vehicles/things
 
 
 Additional machine and computerized mathematical methods: 
