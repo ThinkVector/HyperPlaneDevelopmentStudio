@@ -19,6 +19,7 @@ References:
 	https://github.com/ThinkVector/VECTOR/blob/master/Readme.txt 
 	https://www.facebook.com/measurablescience/posts/1320931411260270
 	https://www.thingiverse.com/groups/flying-and-ground-vehicles/things
+	https://www.thingiverse.com/thing:4826213 (6D Area Hardware Operation Cosmology Shell)
 
 
 Additional machine and computerized mathematical methods: 
