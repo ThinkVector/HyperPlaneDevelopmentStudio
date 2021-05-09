@@ -11,7 +11,7 @@ Grand Abstract: Hyper Plane Development Studio for hyper operating system, hyper
 	PS: Personal (OR Personal Devices) Systems
 
 
-Operating and Operation System:
+Operating and Operation System
 
 	Operating System: HPDS: https://github.com/ferditekin/HyperPlane
 	Vector System : https://github.com/ferditekin/VECTOR
