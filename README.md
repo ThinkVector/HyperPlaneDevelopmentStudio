@@ -12,7 +12,7 @@ Grand Abstract: Hyper Plane Development Studio for hyper operating system, hyper
 
 
 Operating System:
-	Hyper Plane Development Studio
+	Hyper Plane Development Studio:
 	https://github.com/ferditekin/HyperPlane
 
 Vector System:
