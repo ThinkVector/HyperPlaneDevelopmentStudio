@@ -20,7 +20,7 @@ References:
 	https://www.facebook.com/measurablescience/posts/1320931411260270
 	https://www.thingiverse.com/groups/flying-and-ground-vehicles/things
 	https://www.thingiverse.com/thing:4826213 (6D Area Hardware Operation Cosmology Shell)
-	https://github.com/ferditekin/HyperPlane/blob/master/hexagonal.operation.language.jpg (Hexagonal Language)
+	https://github.com/ferditekin/HyperPlane/blob/master/hexagonal.operation.language.svg (Hexagonal Language)
 
 
 Additional machine and computerized mathematical methods: 
