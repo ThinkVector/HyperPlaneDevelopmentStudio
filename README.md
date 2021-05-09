@@ -20,6 +20,7 @@ Operating and Operation System
 	Dimensions:
 		 (N!, N2P, 0D, 1D, 2D, 3D, 4D, 5D, 6D, 7D, 8D, 9D, 10D, 11D, 12D, RND, -0D):
 		 https://www.thingiverse.com/thing:4730415
+	COSMOLOGY PRIME (HYPER) LOGICS: https://www.thingiverse.com/thing:4730415
 		 
 
 
@@ -33,6 +34,7 @@ References:
 	https://www.thingiverse.com/groups/flying-and-ground-vehicles/things
 	https://www.thingiverse.com/thing:4826213 (6D Area Hardware Operation Cosmology Shell)
 	https://github.com/ferditekin/HyperPlane/blob/master/hexagonal.operation.language.svg (Hexagonal Language)
+	https://www.thingiverse.com/thing:4730415 [COSMOLOGY PRIME (HYPER) LOGICS]
 
 
 Additional machine and computerized mathematical methods: 
