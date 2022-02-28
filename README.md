@@ -150,3 +150,6 @@ True in all the time:
 	* Angle 1/8 true in infinity division.
 	* Angle 1/12 true in infinity division.
 	
+
+
+![VECTOR](https://github.com/ThinkVector/HyperPlaneDevelopmentStudio/blob/master/VECTOR.svg)
