@@ -13,16 +13,15 @@ Grand Abstract: Hyper Plane Development Studio for hyper operating system, hyper
 
 Operating and Operation System
 
-	Operating System: HPDS: https://github.com/ferditekin/HyperPlane
-	Vector System : https://github.com/ferditekin/VECTOR
+	VECTOR (Hyper Operating Systems) : https://github.com/ThinkVector/VECTOR
 	Operation System: https://www.thingiverse.com/groups/flying-and-ground-vehicles/things
 	6D Area Hardware Operation Cosmology Shell: https://www.thingiverse.com/thing:4826213
-	Hexagonal Display (1H, 7H, 19H, N*H): https://www.tinkercad.com/things/2FU6LUPJ0Yf
-	Hexagonal Display (1H, 7H, 19H, N*H) Trial: https://www.tinkercad.com/things/egqR2CUChtn
+	Hexagonal Display (1H, 7H, 19H, NxH): https://www.tinkercad.com/things/2FU6LUPJ0Yf
+	Hexagonal Display (1H, 7H, 19H, NxH) Trial: https://www.tinkercad.com/things/egqR2CUChtn
 	Dimensions:
 		 (N!, N2P, 0D, 1D, 2D, 3D, 4D, 5D, 6D, 7D, 8D, 9D, 10D, 11D, 12D, RND, -0D):
 		 https://www.thingiverse.com/thing:4730415
-	COSMOLOGY PRIME (HYPER) LOGICS: https://www.thingiverse.com/thing:4730415
+	Cosmology Realities: https://www.thingiverse.com/thing:4730415
 		 
 
 
@@ -32,11 +31,11 @@ References:
 	https://github.com/ThinkVector/VECTOR/blob/master/Basic.Object.Transformation.txt
 	https://github.com/ThinkVector/VECTOR/blob/master/primeVectorClass.php
 	https://github.com/ThinkVector/VECTOR/blob/master/Readme.txt 
-	https://www.facebook.com/measurablescience/posts/1320931411260270
+	https://www.facebook.com/measurablescience/posts/280306277453989
 	https://www.thingiverse.com/groups/flying-and-ground-vehicles/things
 	https://www.thingiverse.com/thing:4826213 (6D Area Hardware Operation Cosmology Shell)
 	https://github.com/ferditekin/HyperPlane/blob/master/hexagonal.operation.language.svg (Hexagonal Language)
-	https://www.thingiverse.com/thing:4730415 [COSMOLOGY PRIME (HYPER) LOGICS]
+	https://www.thingiverse.com/thing:4730415 [Cosmology Realities]
 
 
 Additional machine and computerized mathematical methods: 
@@ -139,8 +138,8 @@ In near future:
 	
 	In the vector of prime set (VP, VPR, VUP, VUPR, VDP, VDPR)
 	most power of this set VP, next VUP. VUP is generally UNREAL DAUGHTER 
-	PRIME call for it's male kind prime's. 2D Hyper Mechanic Dimension call next
-	90' 90' - 2D unreal daughter dimension method.
+	PRIME call for it's male kind prime's. 2D VP Hyper Mechanic Dimension call next
+	90' 90' - 2D VUP unreal daughter dimension method.
 
 
 True in all the time:
